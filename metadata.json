@@ -1,0 +1,12 @@
+{
+  "name": "CropGuard AI",
+  "description": "AI-powered crop disease detection for farmers, supporting multiple crops with bilingual (English/Urdu) support and expert chatbot advice.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "Image Analysis",
+    "Multilingual Support",
+    "Real-time Chat"
+  ]
+}

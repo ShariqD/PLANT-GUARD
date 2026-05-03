@@ -1,0 +1,43 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "language": { "type": "string", "enum": ["en", "ur"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email", "language"]
+    },
+    "Detection": {
+      "title": "Detection",
+      "description": "A crop disease detection record",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "cropType": { "type": "string", "enum": ["potato", "tomato", "strawberry", "blueberry", "orange", "corn"] },
+        "imageUrl": { "type": "string" },
+        "status": { "type": "string", "enum": ["healthy", "diseased"] },
+        "diseaseName": { "type": "string" },
+        "confidence": { "type": "number" },
+        "recommendations": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "cropType", "imageUrl", "status", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User profile data"
+    },
+    "/detections/{detectionId}": {
+      "schema": "Detection",
+      "description": "Disease detection history"
+    }
+  }
+}
